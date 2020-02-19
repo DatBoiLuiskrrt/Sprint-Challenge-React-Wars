@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import WarsCard from "./WarsCard";
+import { Container, Row} from "reactstrap";
 
 export default function WarsList() {
     const [char, setChar] = useState([]);
@@ -21,13 +22,15 @@ export default function WarsList() {
         });
     }, []);
     return (
-        <>
+        <Container>
+            <Row>
         {char.map(myCharacters => {
             return <WarsCard key={myCharacters.name}data={myCharacters} />
         })},
         {/* {planet.map(myPlanet => {
             return <WarsCard secondProps={myPlanet} />
         })} */}
-        </>
+            </Row>
+        </Container>
     );
 }
